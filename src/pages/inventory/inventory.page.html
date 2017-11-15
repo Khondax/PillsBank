@@ -1,9 +1,37 @@
 <ion-header>
-    <ion-navbar>
+    <ion-navbar color="primary">
         <ion-title>Inventario</ion-title>
+
+        <ion-buttons right>
+            <button ion-button icon-only (click)="newPill()">
+                <ion-icon name="add"></ion-icon>
+            </button>
+        </ion-buttons>
+
     </ion-navbar>
 </ion-header>
 
 <ion-content padding>
+
+<!--     <button ion-button (click)="addPill()" >Añadir</button>
+    <button ion-button (click)="getPill()" >Mostrar</button> -->
+    <button ion-button full (click)="delete()" >Eliminar registros</button>
+
+    <ion-list >
+        <ion-item-group>
+            <ion-row *ngFor="let pills of data">
+                <ion-col col-9>
+                    <ion-item>
+                        <h3>Nombre: {{pills}}</h3>
+                        <h3>Cantidad: {{pills}}</h3>
+                        <h3>Precio: {{pills}}</h3>
+                    </ion-item>
+                </ion-col>
+                <ion-col col-3>
+                    <!-- <img [src]=""> -->
+                </ion-col>
+            </ion-row>
+        </ion-item-group>
+    </ion-list>
 
 </ion-content>
