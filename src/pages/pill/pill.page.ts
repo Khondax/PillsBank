@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, ViewController, NavParams } from 'ionic-angular';
+
+import { Storage } from "@ionic/storage";
 
 @Component({
     templateUrl: 'pill.page.html',
@@ -7,8 +9,22 @@ import { NavController } from 'ionic-angular';
 })
 export class PillPage {
 
-    constructor(public navCtrl: NavController) {
+    pill: any;
 
+    constructor(public nav: NavController,
+                private view: ViewController,
+                private navParams: NavParams,
+                private storage: Storage) {
+
+        this.storage.get(this.navParams.data).then((data) => {
+            this.pill = data;
+        });
+
+    }
+
+
+    goBack(){
+        this.view.dismiss();
     }
 
 }

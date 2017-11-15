@@ -1,7 +1,14 @@
 <ion-header>
-    <ion-navbar>
-        <ion-title>Nombre pastilla</ion-title>
-    </ion-navbar>
+    <ion-toolbar color="primary">
+        <ion-title>{{pill[0]}}</ion-title>
+
+        <ion-buttons left>
+            <button ion-button icon-only (click)="goBack()">
+                <ion-icon name="arrow-round-back"></ion-icon>
+            </button>
+        </ion-buttons>
+
+    </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
