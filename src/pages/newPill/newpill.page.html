@@ -6,5 +6,27 @@
 
 <ion-content padding>
 
-</ion-content>
+    <form [formGroup]="pillForm" (submit)="addPill()" novalidate>
+
+       <ion-item>
+           <ion-input formControlName="name" type="text" placeholder="Nombre de la pastilla" ></ion-input>
+       </ion-item>
+
+       <ion-item>
+           <ion-input formControlName="pillBox" type="number" placeholder="Número de pastillas" ></ion-input>
+       </ion-item>
+
+       <ion-item>
+           <ion-input formControlName="price" type="number" placeholder="Precio" ></ion-input>
+       </ion-item>
+
+       
+       <button ion-button class="addButton" type="submit">
+           Guardar pastilla
+        </button>
+    </form>
+    <button ion-button (click)="useCamera()">
+         Añadir imagen
+     </button>
     
+</ion-content>
