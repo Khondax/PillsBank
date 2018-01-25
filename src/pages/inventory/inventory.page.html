@@ -19,12 +19,12 @@
 
     <ion-list >
         <ion-item-group>
-            <ion-row *ngFor="let pills of data">
+            <ion-row *ngFor="let pills of allData">
                 <ion-col col-9>
                     <ion-item>
-                        <h3>Nombre: {{pills}}</h3>
-                        <h3>Cantidad: {{pills}}</h3>
-                        <h3>Precio: {{pills}}</h3>
+                        <h3>Nombre: {{pills.name}}</h3>
+                        <h3>Cantidad: {{pills.numb}}</h3>
+                        <h3>Precio: {{pills.price}}</h3>
                     </ion-item>
                 </ion-col>
                 <ion-col col-3>

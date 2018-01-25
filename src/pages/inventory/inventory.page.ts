@@ -5,6 +5,8 @@ import { NewPillPage, PillPage } from "../pages";
 
 import { Storage } from "@ionic/storage";
 
+import _ from "lodash";
+
 @Component({
     templateUrl: 'inventory.page.html',
     selector: 'inventory.page.scss'
@@ -12,7 +14,7 @@ import { Storage } from "@ionic/storage";
 
 export class InventoryPage {
 
-    data = [];
+    allData = [];
 
     constructor(public nav: NavController,
                 private storage: Storage) {
@@ -20,8 +22,8 @@ export class InventoryPage {
     }
 
     ionViewDidLoad(){
-        this.storage.forEach((value, key, index) =>{
-            this.data[index.valueOf()] = value;
+        this.storage.forEach((value, key, index) => {
+            this.allData[key.valueOf()] = value;
         });
     }
 
