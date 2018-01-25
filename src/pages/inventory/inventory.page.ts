@@ -5,8 +5,6 @@ import { NewPillPage, PillPage } from "../pages";
 
 import { Storage } from "@ionic/storage";
 
-import _ from "lodash";
-
 @Component({
     templateUrl: 'inventory.page.html',
     selector: 'inventory.page.scss'
@@ -31,20 +29,10 @@ export class InventoryPage {
         this.nav.push(NewPillPage);
     }
 
-    goToPill($event, key){
-        this.nav.push(PillPage, key);
+    goToPill($event, pill){
+        this.nav.push(PillPage, pill);
     }
 
-    //DEBUG
-    addPill(){
-        this.storage.set('test', ["Para", "60", "5"]);
-    }
-    //DEBUG
-    getPill(){
-        this.storage.get('test').then((data) => {
-            console.log(data);
-        });
-    }
     //DEBUG
     delete(){
         this.storage.clear();
