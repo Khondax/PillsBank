@@ -31,8 +31,8 @@ export class NewPillPage {
         });
 
         this.storage.forEach((value, key, index) => {
-            this.data[index.valueOf()] = value[0];
-            console.log(this.data[index.valueOf()]);
+            this.data[key.valueOf()] = value;
+            console.log(this.data[key.valueOf()]);
         });
 
     }
@@ -65,7 +65,7 @@ export class NewPillPage {
         var bool;
 
          for (let index = 0; index < this.data.length; index++) {
-            if (this.data[index] === this.pillForm.value.name){
+            if (this.data[index].name === this.pillForm.value.name){
                 bool = true;
                 break;
             } else {
@@ -124,9 +124,13 @@ export class NewPillPage {
         } else {
             var index;
             this.storage.length().then((val) => {
-                index = val.valueOf() + 1;
+                index = val.valueOf();
                 console.log(index);
-                this.storage.set(index.toString(), [this.pillForm.value.name, this.pillForm.value.pillBox, this.pillForm.value.price]);
+                this.storage.set(index.toString(), {
+                    "name": this.pillForm.value.name,
+                    "numb": this.pillForm.value.pillBox,
+                    "price": this.pillForm.value.price
+                });
             });
             this.nav.pop();
         }
