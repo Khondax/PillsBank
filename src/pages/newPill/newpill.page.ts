@@ -127,6 +127,7 @@ export class NewPillPage {
                 index = val.valueOf();
                 console.log(index);
                 this.storage.set(index.toString(), {
+                    "key": index.toString(),
                     "name": this.pillForm.value.name,
                     "numb": this.pillForm.value.pillBox,
                     "price": this.pillForm.value.price,
