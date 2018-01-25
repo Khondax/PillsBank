@@ -130,7 +130,8 @@ export class NewPillPage {
                     "name": this.pillForm.value.name,
                     "numb": this.pillForm.value.pillBox,
                     "price": this.pillForm.value.price,
-                    "dose": "0"
+                    "dose": "Null",
+                    "duration": "Null"
                 });
             });
             this.nav.pop();
