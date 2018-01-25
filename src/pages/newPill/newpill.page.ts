@@ -129,7 +129,8 @@ export class NewPillPage {
                 this.storage.set(index.toString(), {
                     "name": this.pillForm.value.name,
                     "numb": this.pillForm.value.pillBox,
-                    "price": this.pillForm.value.price
+                    "price": this.pillForm.value.price,
+                    "dose": "0"
                 });
             });
             this.nav.pop();
