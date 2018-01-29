@@ -127,12 +127,14 @@ export class NewPillPage {
                 index = val.valueOf();
                 console.log(index);
                 this.storage.set(index.toString(), {
-                    "key": index.toString(),
-                    "name": this.pillForm.value.name,
-                    "numb": this.pillForm.value.pillBox,
-                    "price": this.pillForm.value.price,
-                    "dose": "Null",
-                    "duration": "Null"
+                    "key": index.toString(),                    //Clave del medicamento
+                    "name": this.pillForm.value.name,           //Nombre
+                    "price": this.pillForm.value.price,         //Precio
+                    "numb": this.pillForm.value.pillBox,        //Número de pastillas
+                    "dose": "Null",                             //Dosis ¿diaria/semanal/mensual?
+                    "duration": "Null",                         //Duración estimada de las pastillas almacenadas
+                    "alarmSet": false,                          //Alarma creada?
+                    "alarmID" : "Null"                          //ID de la alarma
                 });
             });
             this.nav.pop();
