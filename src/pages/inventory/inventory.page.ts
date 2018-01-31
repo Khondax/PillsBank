@@ -19,7 +19,7 @@ export class InventoryPage {
 
     }
 
-    ionViewDidLoad(){
+    ionViewDidEnter(){
         this.storage.forEach((value, key, index) => {
             this.allData[key.valueOf()] = value;
         });
