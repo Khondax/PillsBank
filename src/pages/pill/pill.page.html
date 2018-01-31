@@ -16,9 +16,15 @@
     <h6>Cantidad de pastillas actualmente: {{pill.numb}}</h6>
     <h6>Frecuencia de la dosis: {{pill.dose}}</h6>
     <h6>Duración estimada: {{pill.duration}}</h6>
-    <h6>Key: {{pill.key}}</h6>
-    
     <button ion-button (click)="addPills()">Añadir pastillas</button>
+    <button ion-button (click)="addDose()">Añadir dosis</button>
+    
+    <ion-footer>
+        <button ion-button full (click)="newAlarm()">Añadir recordatorio</button>
+        <button ion-button full (click)="removeAlarm()">Eliminar alarma</button>
+        
+    </ion-footer>
+
 
 
 </ion-content>
