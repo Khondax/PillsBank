@@ -10,6 +10,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { IonicStorageModule } from "@ionic/storage";
 import { Camera } from "@ionic-native/camera";
 import { LocalNotifications } from '@ionic-native/local-notifications';
+import { DatePicker } from "@ionic-native/date-picker";
 
 @NgModule({
     declarations: [
@@ -39,6 +40,7 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
         SplashScreen,
         Camera,
         LocalNotifications,
+        DatePicker,
         {provide: ErrorHandler, useClass: IonicErrorHandler}
     ]
 })
