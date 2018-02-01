@@ -1,11 +1,37 @@
 <ion-header>
-    <ion-navbar>
+    <ion-navbar color="primary">
         <ion-title>Portada</ion-title>
     </ion-navbar>
 </ion-header>
 
 <ion-content padding>
 
-    <h4 *ngIf="Property" >Alarmas creadas</h4>
+    <h4>Alarmas creadas</h4>
+
+    <ion-list >
+        <ion-item-group>
+            <ion-row *ngFor="let alarm of pills">
+                <ion-col col-10>
+                    <ion-item (click)="goToPill($event, alarm)" >
+                        <h2>{{alarm.text}}</h2>
+                        <h3>{{alarm.at | date:'HH:mm dd/MM'}}</h3>
+                        <h3 *ngIf="alarm.every == 'day'" >La alarma suena diariamente</h3>
+                        <h3 *ngIf="alarm.every == 'week'" >La alarma suena semanalmente</h3>
+                        <h3 *ngIf="alarm.every == 'month'" >La alarma suena mensualmente</h3>
+                    </ion-item>
+                    
+                </ion-col>
+                <ion-col col-2>
+                    <button ion-button icon-only (click)="cancelAlarm(alarm)">
+                        <ion-icon name="close-circle"></ion-icon>
+                    </button>
+                </ion-col>
+            </ion-row>
+            
+
+        </ion-item-group>
+
+
+    </ion-list>
 
 </ion-content>
