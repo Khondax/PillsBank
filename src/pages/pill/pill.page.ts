@@ -111,7 +111,7 @@ export class PillPage {
 
     removeAlarm(){
 
-        this.localNotifications.clear(parseInt(this.pill.key));
+        this.localNotifications.cancel(this.pill.key);
 
         this.storage.set(this.pill.key, {
             "key": this.pill.key,
