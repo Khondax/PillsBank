@@ -34,6 +34,19 @@ export class HomePage {
 
         this.localNotifications.getAllScheduled().then((notifications) => {
             this.pills = notifications;
+
+            notifications.forEach(element => {
+                this.storage.get(element.id.toString()).then(
+                    data => {
+                        if (data.duration <= 7) {
+                            this.localNotifications.schedule({
+                                id: 16,
+                                text: 'Recuerda comprar ' + data.name
+                            });
+                        }
+                    }
+                );
+            });
         });
         
     }
