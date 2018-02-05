@@ -3,7 +3,6 @@ import { NavController, AlertController } from 'ionic-angular';
 
 import { FormBuilder } from "@angular/forms";
 import { Storage } from "@ionic/storage";
-import { Camera, CameraOptions } from "@ionic-native/camera";
 import { Console } from '@angular/core/src/console';
 
 @Component({
@@ -14,13 +13,11 @@ import { Console } from '@angular/core/src/console';
 export class NewPillPage {
 
     pillForm: any;
-    base64Image: any;
 
     data = [];
 
     constructor(public nav: NavController,
                 private formBuilder: FormBuilder,
-                private cam: Camera,
                 private alertCtrl: AlertController,
                 private storage: Storage) {
 
@@ -33,23 +30,6 @@ export class NewPillPage {
         this.storage.forEach((value, key, index) => {
             this.data[key.valueOf()] = value;
             console.log(this.data[key.valueOf()]);
-        });
-
-    }
-
-    useCamera(){
-
-        const options: CameraOptions = {
-            quality: 40,
-            destinationType: this.cam.DestinationType.DATA_URL,
-            encodingType: this.cam.EncodingType.JPEG,
-            mediaType: this.cam.MediaType.PICTURE
-        }
-
-        this.cam.getPicture(options).then((imageData) => {
-            this.base64Image = 'data:image/jpeg;base64,' + imageData;
-        }, (err) => {
-
         });
 
     }
@@ -108,18 +88,6 @@ export class NewPillPage {
                 ]
             });
             alert.present();
-
-/*         } else if (this.base64Image.length < 10){
-            let alert = this.alertCtrl.create({
-                message: "No has añadido una imagen",
-                buttons: [
-                    {
-                        text: "Ok",
-                        role: 'cancel'
-                    }
-                ]
-            });
-            alert.present(); */
 
         } else {
             var index;
