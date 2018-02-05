@@ -7,8 +7,11 @@
                 <ion-icon name="add"></ion-icon>
             </button>
         </ion-buttons>
-
     </ion-navbar>
+
+    <ion-toolbar >
+        <ion-searchbar placeholder="Buscar" [(ngModel)]="queryText" (ionInput)="search()"></ion-searchbar>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
@@ -16,7 +19,7 @@
     <button ion-button full (click)="delete()" >Eliminar registros</button>
 
     <ion-row >
-        <ng-container *ngFor="let pill of allData">
+        <ng-container *ngFor="let pill of allPills">
             <ion-col col-6 col-sm-3 col-md-3 col-lg-2 col-xl-2>
                 <ion-card (click)="goToPill($event, pill)">
                     <ion-card-header>

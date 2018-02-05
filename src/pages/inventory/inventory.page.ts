@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 
 import { NewPillPage, PillPage } from "../pages";
 
+import _ from 'lodash';
 import { Storage } from "@ionic/storage";
 
 @Component({
@@ -13,6 +14,8 @@ import { Storage } from "@ionic/storage";
 export class InventoryPage {
 
     allData = [];
+    allPills = [];
+    queryText: string = "";
 
     constructor(public nav: NavController,
                 private storage: Storage) {
@@ -23,6 +26,8 @@ export class InventoryPage {
         this.storage.forEach((value, key, index) => {
             this.allData[key.valueOf()] = value;
         });
+
+        this.allPills = this.allData;
     }
 
     newPill(){
@@ -31,6 +36,14 @@ export class InventoryPage {
 
     goToPill($event, pill){
         this.nav.push(PillPage, pill);
+    }
+
+    search(){
+        let queryTextLower = this.queryText.toLowerCase();
+
+        let pills = _.filter(this.allData, or => (<any>or).name.toLowerCase().includes(queryTextLower));
+
+        this.allPills = pills;
     }
 
     //DEBUG
