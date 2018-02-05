@@ -8,30 +8,31 @@
 
     <h4>Alarmas creadas</h4>
 
-    <ion-list >
-        <ion-item-group>
-            <ion-row *ngFor="let alarm of pills">
-                <ion-col col-10>
-                    <ion-item (click)="goToPill($event, alarm)" >
-                        <h2>{{alarm.text}}</h2>
-                        <h3>{{alarm.at | date:'HH:mm dd/MM'}}</h3>
-                        <h3 *ngIf="alarm.every == 'day'" >La alarma suena diariamente</h3>
-                        <h3 *ngIf="alarm.every == 'week'" >La alarma suena semanalmente</h3>
-                        <h3 *ngIf="alarm.every == 'month'" >La alarma suena mensualmente</h3>
-                    </ion-item>
-                    
-                </ion-col>
-                <ion-col col-2>
-                    <button ion-button icon-only (click)="cancelAlarm(alarm)">
-                        <ion-icon name="close-circle"></ion-icon>
-                    </button>
-                </ion-col>
-            </ion-row>
+    <ion-list text-wrap>
+        <ion-item-sliding *ngFor="let alarm of pills">
+
+            <ion-item  >
+                <h2>{{alarm.text}}</h2>
+                <h3>{{alarm.at | date:'HH:mm dd/MM'}}</h3>
+                <h3 *ngIf="alarm.every == 'day'" >La alarma suena diariamente</h3>
+                <h3 *ngIf="alarm.every == 'week'" >La alarma suena semanalmente</h3>
+                <h3 *ngIf="alarm.every == 'month'" >La alarma suena mensualmente</h3>
+            </ion-item>
+
+            <ion-item-options side="right">
+                <button ion-button (click)="goToPill($event, alarm)">
+                    <ion-icon name="arrow-dropright-circle"></ion-icon>
+                    Acceder
+                </button>
+                <button ion-button (click)="cancelAlarm(alarm)">
+                    <ion-icon name="trash"></ion-icon>
+                    Borrar
+                </button>
+            </ion-item-options>
+
+
+        </ion-item-sliding>
             
-
-        </ion-item-group>
-
-
     </ion-list>
 
 </ion-content>
