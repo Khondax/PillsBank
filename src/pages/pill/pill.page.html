@@ -1,6 +1,6 @@
 <ion-header>
     <ion-toolbar color="primary">
-        <ion-title>Añadir {{pill.name}}</ion-title>
+        <ion-title>{{pill.name}}</ion-title>
 
         <ion-buttons left>
             <button ion-button icon-only (click)="goBack()">
@@ -13,15 +13,43 @@
 
 <ion-content padding>
 
-    <h6>Cantidad de pastillas actualmente: {{pill.numb}}</h6>
-    <h6>Frecuencia de la dosis: {{pill.dose}}</h6>
-    <h6>Duración estimada: {{pill.duration}}</h6>
-    <button ion-button (click)="addPills()">Añadir pastillas</button>
-    <button ion-button (click)="addDose()">Añadir dosis</button>
+    <ion-row>
+        <ion-col col-6>
+            <button ion-button full (click)="addPills()">Añadir pastillas</button>
+        </ion-col>
+
+        <ion-col col-6>
+            <button ion-button full (click)="addDose()">Seleccionar dosis</button>
+        </ion-col>
+    </ion-row>
+
+    <ion-list >
+        <ion-item>
+            Cantidad de pastillas actualmente: {{pill.numb}}
+        </ion-item>
+        <ion-item *ngIf="pill.dose != 'Null'" >
+            Frecuencia de la dosis: {{pill.dose}}
+        </ion-item>
+        <ion-item *ngIf="pill.duration != 'Null'">
+            Duración estimada: {{pill.duration}}
+        </ion-item>
+    </ion-list>
     
     <ion-footer>
-        <button ion-button full (click)="newAlarm()">Añadir recordatorio</button>
-        <button ion-button full (click)="removeAlarm()">Eliminar alarma</button>
+        <ion-row>
+            <ion-col col-6>
+                <button ion-button full icon-only (click)="newAlarm()">
+                    <ion-icon name="alarm"></ion-icon>
+                    Añadir alarma
+                </button>
+            </ion-col>
+            <ion-col col-6>
+                <button ion-button full icon-only (click)="removeAlarm()">
+                    <ion-icon name="trash"></ion-icon>
+                    Eliminar alarma
+                </button>
+            </ion-col>
+        </ion-row>
         
     </ion-footer>
 
