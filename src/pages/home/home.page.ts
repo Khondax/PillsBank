@@ -81,7 +81,7 @@ export class HomePage {
                 let toast = this.toastController.create({
                     message: "Se ha eliminado la alarma",
                     duration: 4000,
-                    position: 'bottom'
+                    position: 'middle'
                 });
         
                 toast.present();

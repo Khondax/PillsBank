@@ -4,27 +4,26 @@
     </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content class="home-page">
 
-    <h4>Alarmas creadas</h4>
+    <p id="title" ><b>Alarmas creadas</b></p>
 
     <ion-list text-wrap>
         <ion-item-sliding *ngFor="let alarm of pills">
 
-            <ion-item  >
+            <ion-item >
                 <h2>{{alarm.text}}</h2>
-                <h3>{{alarm.at | date:'HH:mm dd/MM'}}</h3>
-                <h3 *ngIf="alarm.every == 'day'" >La alarma suena diariamente</h3>
-                <h3 *ngIf="alarm.every == 'week'" >La alarma suena semanalmente</h3>
-                <h3 *ngIf="alarm.every == 'month'" >La alarma suena mensualmente</h3>
+                <h3 *ngIf="alarm.every == 'day'" >La alarma suena diariamente a las {{alarm.at * 1000 | date:'shortTime'}} a partir del {{alarm.at * 1000 | date:'dd/MM'}}</h3>
+                <h3 *ngIf="alarm.every == 'week'" >La alarma suena semanalmente a las {{alarm.at * 1000 | date:'shortTime'}} a partir del {{alarm.at * 1000 | date:'dd/MM'}}</h3>
+                <h3 *ngIf="alarm.every == 'month'" >La alarma suena mensualmente a las {{alarm.at * 1000 | date:'shortTime'}} a partir del {{alarm.at * 1000 | date:'dd/MM'}}</h3>
             </ion-item>
 
             <ion-item-options side="right">
-                <button ion-button (click)="goToPill($event, alarm)">
+                <button ion-button color="secondary2" (click)="goToPill($event, alarm)">
                     <ion-icon name="arrow-dropright-circle"></ion-icon>
                     Acceder
                 </button>
-                <button ion-button (click)="cancelAlarm(alarm)">
+                <button ion-button color="danger2" (click)="cancelAlarm(alarm)">
                     <ion-icon name="trash"></ion-icon>
                     Borrar
                 </button>
