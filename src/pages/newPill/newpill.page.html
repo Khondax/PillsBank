@@ -1,28 +1,33 @@
 <ion-header>
-    <ion-navbar>
+    <ion-navbar color="primary">
         <ion-title>Nueva pastilla</ion-title>
     </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding class="newpill-page">
 
     <form [formGroup]="pillForm" (submit)="addPill()" novalidate>
+        <ion-item>
+            <ion-input formControlName="name" type="text" placeholder="Nombre de la pastilla" ></ion-input>
+        </ion-item>
+        
+        <ion-row>
+            <ion-col col-6>
+                <ion-item>
+                    <ion-input formControlName="pillBox" type="number" placeholder="Número de pastillas" ></ion-input>
+                </ion-item>
+            </ion-col>
+            <ion-col col-6>
+                <ion-item>
+                    <ion-input formControlName="price" type="number" placeholder="Precio" ></ion-input>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        
 
-       <ion-item>
-           <ion-input formControlName="name" type="text" placeholder="Nombre de la pastilla" ></ion-input>
-       </ion-item>
 
-       <ion-item>
-           <ion-input formControlName="pillBox" type="number" placeholder="Número de pastillas" ></ion-input>
-       </ion-item>
-
-       <ion-item>
-           <ion-input formControlName="price" type="number" placeholder="Precio" ></ion-input>
-       </ion-item>
-
-       
-       <button ion-button class="addButton" type="submit">
-           Guardar pastilla
+        <button ion-button class="addButton" type="submit">
+            Guardar pastilla
         </button>
     </form>
     
