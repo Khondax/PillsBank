@@ -91,7 +91,7 @@ export class PillPage {
                                     let toast = this.toastController.create({
                                         message: "Alarma creada",
                                         duration: 4000,
-                                        position: 'bottom'
+                                        position: 'middle'
                                     });
                             
                                     toast.present();
@@ -127,7 +127,7 @@ export class PillPage {
         let toast = this.toastController.create({
             message: "Se ha eliminado la alarma",
             duration: 4000,
-            position: 'bottom'
+            position: 'middle'
         });
 
         toast.present();
@@ -165,7 +165,7 @@ export class PillPage {
                         let toast = this.toastController.create({
                             message: "Se ha registrado el cambio, quedan " + nPills/this.pill.dose + " dias hasta que termine el suministro",
                             duration: 4000,
-                            position: 'bottom'
+                            position: 'middle'
                         });
 
                         toast.present();
@@ -206,7 +206,7 @@ export class PillPage {
                         let toast = this.toastController.create({
                             message: "Cambio registrado",
                             duration: 4000,
-                            position: 'bottom'
+                            position: 'middle'
                         });
 
                         toast.present();
